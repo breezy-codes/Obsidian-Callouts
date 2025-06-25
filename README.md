@@ -2,7 +2,7 @@
 
 This repository contains a growing collection of custom callouts for use in Obsidian. These are defined using CSS snippets and are intended to improve visual clarity and structure when writing in Markdown.
 
-![figure](fig1.png)
+![figure](https://briannalaird.com/_images/fig6.png)
 
 ## About
 
