@@ -63,6 +63,34 @@ The following block controls the overall appearance of each callout, ensuring th
 
 This layered structure creates a subtle overlay effect based on the specific callout’s highlight colour while preserving text readability.
 
+## Blank Callout
+
+I added a blank (neutral) callout style that lets you group a section of text into a block without adding any special styling or title. This is helpful when you want to link to an entire section of text from other notes, using the neutral callout makes it easy to reference the whole block, while keeping the visual style minimal.
+
+```css
+/* === NEUTRAL (unstyled, no title, no icon, no styling) === */
+.callout[data-callout="neutral"] {
+    --callout-color: 255, 255, 255;
+    --callout-icon: none;
+    background-color: unset !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.callout[data-callout="neutral"]::before {
+    display: none !important;
+}
+
+/* Hide the title bar completely */
+.callout[data-callout="neutral"] .callout-title {
+    display: none !important;
+}
+```
+
+This allows you to create a clean, unstyled block that can be used for grouping content without any additional visual noise. It also hides the title bar and icon, making it truly neutral.
+
 ## Features
 
 * Custom callout types (e.g. `figure`, `quote`, `info-block`)

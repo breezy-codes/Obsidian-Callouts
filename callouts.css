@@ -150,3 +150,23 @@
     --callout-icon: lucide-help-circle;
     background-color: rgba(var(--drac-yellow-rgb), 0.2);
 }
+
+/* === NEUTRAL (unstyled, no title, no icon, no styling) === */
+.callout[data-callout="neutral"] {
+    --callout-color: 255, 255, 255;
+    --callout-icon: none;
+    background-color: unset !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.callout[data-callout="neutral"]::before {
+    display: none !important;
+}
+
+/* Hide the title bar completely */
+.callout[data-callout="neutral"] .callout-title {
+    display: none !important;
+}
