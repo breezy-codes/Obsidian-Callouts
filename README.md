@@ -91,6 +91,41 @@ I added a blank (neutral) callout style that lets you group a section of text in
 
 This allows you to create a clean, unstyled block that can be used for grouping content without any additional visual noise. It also hides the title bar and icon, making it truly neutral.
 
+## Scrollable Callouts
+
+You can also create scrollable callouts by adding some custom CSS, this is useful for large blocks of text or code that you want to keep within a defined area without breaking the flow of your notes.
+
+```css
+/* === SHARED SCROLL BEHAVIOUR === */
+.callout[data-callout$="-scrollable"] .callout-content {
+    --shown-line-count: 8;
+    max-height: calc(var(--line-height-normal) * 1rem * var(--shown-line-count));
+    overflow-y: auto;
+}
+```
+
+Here you can define a callout that will only show a certain number of lines before it becomes scrollable. This is particularly useful for keeping your notes tidy while still allowing access to larger blocks of text. Whats cool is that you can combine this with any of the custom callouts, so long as you append `-scrollable` to the callout type.
+
+### How to preserve styling for scrollable callouts
+
+If you want to preserve the styling of a callout while making it scrollable, you just need to make a small adjustment to the CSS. For example, if you want to make a `note` callout scrollable, then you just need to add a `^` before the `=` in the selector:
+
+```css
+/* === NOTE === */
+.callout[data-callout^="note"] {
+    --callout-color: var(--drac-pink-rgb);
+    --callout-icon: lucide-pencil;
+    background-color: rgba(var(--drac-pink-rgb), 0.2);
+}
+```
+
+Now you can use the scrollable version of the note callout like this:
+
+```
+> [!note-scrollable] Note
+> This is a scrollable note callout. It will only show a limited number of lines before becoming scrollable.
+```
+
 ## Features
 
 * Custom callout types (e.g. `figure`, `quote`, `info-block`)
